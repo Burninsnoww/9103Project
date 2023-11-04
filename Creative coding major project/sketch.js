@@ -1,5 +1,5 @@
 // Initialize global variables
-let c_radius = 30;
+let c_radius = 80;
 let yoff = 0.0;
 let translate1 = 1;
 let translate2 = 1;
@@ -111,6 +111,14 @@ function generateBg() {
 }
 
 function draw() {
+  //red vortex
+  strokeWeight(2)
+  c_radius += 0.1
+  let c_radius_n = noise(c_radius)*650
+  noFill()
+  stroke(255,0,0)
+  ellipse(300,400,c_radius_n)
+  
 
   //wave and shading
   background(0,4)
@@ -356,6 +364,7 @@ function draw() {
 
   let line13 = new lines(181,590,420,590)
   line13.display()
+
 
 
 
