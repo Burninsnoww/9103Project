@@ -111,6 +111,27 @@ function generateBg() {
 }
 
 function draw() {
+
+  //wave and shading
+  background(0,4)
+  fill(255);
+  beginShape();
+
+  let xoff = 0;
+
+  
+  for (let x = 0; x <= width; x += 10) {
+    let y = map(noise(xoff, yoff), 0, 1, 400, 600);   
+    vertex(x, y);
+    xoff += 0.05;
+  }
+  
+  yoff += 0.01;
+  vertex(width, height);
+  vertex(0, height);
+  endShape(CLOSE);
+
+
   //stroke animation 
   strokeColor += 0.1
   stroke_weight+= 0.1
