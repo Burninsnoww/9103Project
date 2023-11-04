@@ -1,5 +1,11 @@
 // Initialize global variables
-let stroke_weight = 3;
+let c_radius = 30;
+let yoff = 0.0;
+let translate1 = 1;
+let translate2 = 1;
+let stroke_weight =3;
+let lineColor = 88;
+let strokeColor = 50;
 var ranges;
 let seed = Math.random() * 200;
 var mySize;
@@ -105,174 +111,192 @@ function generateBg() {
 }
 
 function draw() {
-  //animation of the stroke
-  stroke_weight+=0.05
-  let stroke_weight_n=10*noise(stroke_weight)
+  //stroke animation 
+  strokeColor += 0.1
+  stroke_weight+= 0.1
+  let stroke_weight_n = noise(stroke_weight)*20
+  let strokeColor_n = noise(strokeColor)*100
   strokeWeight(stroke_weight_n);
-  
+  stroke(25,strokeColor_n,90);
+
+  translate1 += 0.1
+  translate2 += 0.1
+  let translate1_n = noise(translate1)*10
+  let translate2_n = noise(translate2)*10
+  translate(translate1_n,translate2_n)
+
   //Left Branch
   let apple1 = new Apple(294, 330, 27, PI / 2, { ratio: 0.43, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple1.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple1.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple2 = new Apple(266, 335, 32, 3 * PI / 2, { ratio: 0.52, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple2.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple2.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple3 = new Apple(234, 328, 36, PI / 2, { ratio: 0.40, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple3.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple3.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple4 = new Apple(189, 297, 73, PI / 30, { ratio: 0.55, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple4.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple4.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple5 = new Apple(184, 238, 46, 31 * PI / 30, { ratio: 0.55, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple5.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple5.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple6 = new Apple(190, 203, 27, PI / 30, { ratio: 0.5, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple6.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple6.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple7 = new Apple(180, 174, 36, PI / 2, { ratio: 0.48, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple7.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple7.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple8 = new Apple(144, 160, 42, 0, { ratio: 0.48, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple8.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple8.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple9 = new Apple(135, 112, 54, PI, { ratio: 0.60, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple9.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple9.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple10 = new Apple(148, 60, 54, 0, { ratio: 0.55, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple10.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple10.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   //Middle Branch
   let apple11 = new Apple(311, 308, 29, 0, { ratio: 0.50, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple11.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple11.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple12 = new Apple(313, 272, 45, PI, { ratio: 0.48, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple12.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple12.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple13 = new Apple(285, 246, 33, PI / 2, { ratio: 0.46, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple13.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple13.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple14 = new Apple(261, 250, 22, 3 * PI / 2, { ratio: 0.46, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple14.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple14.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple15 = new Apple(269, 226, 20, 0, { ratio: 0.52, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple15.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple15.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple16 = new Apple(343, 250, 30, 3 * PI / 2, { ratio: 0.50, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple16.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple16.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple17 = new Apple(350, 225, 23, 0, { ratio: 0.40, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple17.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple17.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   //Right Branch
   let apple18 = new Apple(329, 337, 41, 3 * PI / 2, { ratio: 0.5, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple18.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple18.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple19 = new Apple(364, 332, 27, 3 * PI / 2, { ratio: 0.60, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple19.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple19.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple20 = new Apple(411, 292, 44, 41 * PI / 40, { ratio: 0.60, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple20.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple20.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple21 = new Apple(395, 328, 40, PI / 2, { ratio: 0.40, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple21.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple21.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple22 = new Apple(416, 254, 32, PI / 40, { ratio: 0.40, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple22.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple22.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple23 = new Apple(421, 210, 61, 41 * PI / 40, { ratio: 0.5, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple23.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple23.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple24 = new Apple(419, 167, 27, PI / 40, { ratio: 0.4, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple24.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple24.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple25 = new Apple(442, 162, 20, 8 * PI / 5, { ratio: 0.4, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple25.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple25.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple26 = new Apple(473, 169, 42, 3 * PI / 5, { ratio: 0.5, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple26.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple26.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple27 = new Apple(508, 176, 27, 8 * PI / 5, { ratio: 0.5, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple27.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple27.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
   let apple28 = new Apple(520, 151, 27, -PI / 40, { ratio: 0.5, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  apple28.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
+  apple28.display({ c1: color(255,255,255), c2: color(192,192,192) });
 
+
+    //tree trunk
+
+    let Apple1 = new Apple(210, 580, 60, 29.85, { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple1.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(220,220,220) });
+  
+    let Apple2 = new Apple(255, 585, 30, 29.85, { ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
+    Apple2.display({ ratio: 0.6, c1: color(220,220,220), c2: color(90,90,90) });
+  
+    let Apple3 = new Apple(285, 570, 40, PI, { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple3.display({ ratio: 0.6, c1: color(90,90,90), c2: color(220,220,220) });
+  
+    let Apple4 = new Apple(332, 582, 60, radians(270), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple4.display({ ratio: 0.6, c1: color(90,90,90), c2: color(220,220,220) });
+  
+    let Apple5 = new Apple(392, 582, 60, radians(270), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple5.display({ ratio: 0.6, c1: color(220,220,220), c2: color(90,90,90) });
+  
+    let Apple6 = new Apple(298, 532, 40, radians(0), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple6.display({ ratio: 0.6, c1: color(90,90,90), c2: color(220,220,220) });
+  
+    let Apple7 = new Apple(298, 490, 45, radians(0), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple7.display({ ratio: 0.6, c1: color(90,90,90), c2: color(220,220,220) });
+  
+    let Apple8 = new Apple(305, 429, 80, radians(360), { ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
+    Apple8.display({ ratio: 0.6, c1: color(220,220,220), c2: color(192,192,192) });
+  
+    let Apple9 = new Apple(300, 367, 44, radians(360), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
+    Apple9.display({ ratio: 0.6, c1: color(192,192,192), c2: color(220,220,220) });
+
+    
 
   // Middle Rectangle
-  stroke(25,50,90);
-  let middleRect = new Rect(95, 602, 417, 77, 19, 145, 99);
+  let middleRect = new Rect(95, 602, 417, 77, 90, 90, 90);
   middleRect.display();
 
   //Soil
-  stroke(25,50,90);
-  let soil = new Rect(120, 590, 370, 77, 188, 168, 88);
+  let soil = new Rect(120, 590, 370, 77, 220,220,220);
   soil.display();
 
-  let soil1 = new Rect(120, 590, 60, 77, 188, 168, 88);
+  let soil1 = new Rect(120, 590, 60, 77, 90,90,90);
   soil1.display();
 
-  let soil2 = new Rect(180, 590, 60, 77, 175, 67, 67);
+  let soil2 = new Rect(180, 590, 60, 77, 220,220,220);
   soil2.display();
 
-  let soil3 = new Rect(240, 590, 60, 77, 19, 145, 99);
+  let soil3 = new Rect(240, 590, 60, 77, 90,90,90);
   soil3.display();
 
-  let soil4 = new Rect(300, 590, 60, 77, 188, 168, 88);
+  let soil4 = new Rect(300, 590, 60, 77, 220,220,220);
   soil4.display();
 
-  let soil5 = new Rect(360, 590, 60, 77, 19, 145, 99);
+  let soil5 = new Rect(360, 590, 60, 77, 90,90,90);
   soil5.display();
 
 
-  let acr1 = new Arc(150, 666, 60, 77, PI, 0, 12, 133, 88);
+  let acr1 = new Arc(150, 666, 60, 77, PI, 0, 220,220,220);
   acr1.display();
 
-  let acr2 = new Arc(210, 666, 60, 50, PI, 0, 12, 133, 88);
+  let acr2 = new Arc(210, 666, 60, 50, PI, 0, 92,92,92);
   acr2.display();
 
-  let acr3 = new Arc(270, 666, 60, 90, PI, 0, 175, 67, 67);
+  let acr3 = new Arc(270, 666, 60, 90, PI, 0, 220,220,220);
   acr3.display();
 
-  let acr4 = new Arc(330, 666, 60, 70, PI, 0, 175, 67, 67);
+  let acr4 = new Arc(330, 666, 60, 70, PI, 0, 92,92,92);
   acr4.display();
 
-  let acr5 = new Arc(390, 666, 60, 30, PI, 0, 188, 168, 88);
+  let acr5 = new Arc(390, 666, 60, 30, PI, 0, 220,220,220);
   acr5.display();
 
-  let acr6 = new Arc(455, 666, 70, 50, PI, 0, 12, 133, 88);
+  let acr6 = new Arc(455, 666, 70, 50, PI, 0, 92,92,92);
   acr6.display();
 
 
-  //tree trunk
-  let Apple1 = new Apple(210, 580, 60, 29.85, { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple1.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-
-  let Apple2 = new Apple(255, 585, 30, 29.85, { ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
-  Apple2.display({ ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
-
-  let Apple3 = new Apple(285, 570, 40, PI, { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple3.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-
-  let Apple4 = new Apple(332, 582, 60, radians(270), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple4.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-
-  let Apple5 = new Apple(392, 582, 60, radians(270), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple5.display({ ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
-
-  let Apple6 = new Apple(298, 532, 40, radians(0), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple6.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-
-  let Apple7 = new Apple(298, 490, 45, radians(0), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple7.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-
-  let Apple8 = new Apple(305, 429, 80, radians(360), { ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
-  Apple8.display({ ratio: 0.6, c1: color(175, 67, 67), c2: color(12, 133, 88) });
-
-  let Apple9 = new Apple(300, 367, 44, radians(360), { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-  Apple9.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
-
 
   //line branches
+  lineColor += 0.1
+  let lineColor_n = noise(lineColor)*300
+
+  stroke_weight_n = noise(stroke_weight)*10
+  strokeWeight(stroke_weight_n);
+  stroke(188,168,lineColor_n)
+
+
   let line1 = new lines(292, 590, 292, 338)
   line1.display()
 
@@ -312,6 +336,10 @@ function draw() {
   let line13 = new lines(181,590,420,590)
   line13.display()
 
+
+
+  
+
 }
 
 //line class for branch
@@ -324,8 +352,8 @@ class lines {
   }
   display() {
     push()
-    strokeWeight(4)
-    stroke(188, 168, 88)
+    //strokeWeight(4)
+    //stroke(188, 168, 88)
     line(this.x1, this.y1, this.x2, this.y2)
     pop()
   }
@@ -345,7 +373,7 @@ class Apple {
     push();
     translate(this.x, this.y)
     rotate(this.angle)
-    stroke(25,50,90);
+    // stroke(25,50,90);
     fill(settings.c1);
     arc(0, 0, this.d, this.d, -(PI * (1 - this.ratio)) + PI, (PI * (1 - this.ratio)) + PI, OPEN, CHORD);
     fill(settings.c2);
@@ -460,10 +488,9 @@ class Arc {
     this.mode = mode;
   }
 
-  //Draw an arc
+
   display() {
     fill(this.fillColor);
-    noStroke();
     arc(this.x, this.y, this.w, this.h, this.start, this.stop, this.mode);
   }
 }
