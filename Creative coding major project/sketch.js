@@ -1,4 +1,5 @@
 // Initialize global variables
+let stroke_weight = 3;
 var ranges;
 let seed = Math.random() * 200;
 var mySize;
@@ -104,7 +105,11 @@ function generateBg() {
 }
 
 function draw() {
-  strokeWeight(3);
+  //animation of the stroke
+  stroke_weight+=0.05
+  let stroke_weight_n=10*noise(stroke_weight)
+  strokeWeight(stroke_weight_n);
+  
   //Left Branch
   let apple1 = new Apple(294, 330, 27, PI / 2, { ratio: 0.43, c1: color(12, 133, 88), c2: color(175, 67, 67) });
   apple1.display({ c1: color(12, 133, 88), c2: color(175, 67, 67) });
@@ -194,13 +199,11 @@ function draw() {
 
 
   // Middle Rectangle
-  strokeWeight(3);
   stroke(25,50,90);
   let middleRect = new Rect(95, 602, 417, 77, 19, 145, 99);
   middleRect.display();
 
   //Soil
-  strokeWeight(3);
   stroke(25,50,90);
   let soil = new Rect(120, 590, 370, 77, 188, 168, 88);
   soil.display();
@@ -241,7 +244,6 @@ function draw() {
 
 
   //tree trunk
-  strokeWeight(3);
   let Apple1 = new Apple(210, 580, 60, 29.85, { ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
   Apple1.display({ ratio: 0.6, c1: color(12, 133, 88), c2: color(175, 67, 67) });
 
