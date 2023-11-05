@@ -148,6 +148,7 @@ function draw() {
   strokeWeight(stroke_weight_n);
   stroke(25,strokeColor_n,90);
 
+  //shaking
   translate1 += 0.1
   translate2 += 0.1
   let translate1_n = noise(translate1)*10
