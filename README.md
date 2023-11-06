@@ -1,6 +1,8 @@
 # 9103Project
 IDEA9103 Design Programming Creative Coding major project individual work - Random Seed (perlin noise)
 
+** Developed by Lawrence Song **
+
 ## Inspiration
 The work is based originally on Anwar Jalal Shemza Apple Tree and the change of colour style and animation part got inspiration from the works of two outstanding artist, Luyun Zhou (1924-2011) and Wassily Kandinsky (1866-1944).
 
